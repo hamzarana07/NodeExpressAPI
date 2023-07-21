@@ -18,41 +18,32 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">Task Manager</a>
-            </div>
-          </nav>
-    </div>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div class="container">
+        <nav class="navbar bg-body-tertiary" style="display: block;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Task Manager</a>
+            </div>
+        </nav>
+    </div>
     <div class="container">
         <br>
         <br>
         <hr>
         <div class="container">
-            <h2 style="text-align: center;">All Tasks</h2>
+            <h2 style="text-align: center;">New Task</h2>
+            <form id="myForm" action="createTask()" method="POST" style="width: 50%;margin: auto;">
+                <div class="mb-2">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" id="titleID" style="border:1px solid green">
+                </div>
 
-            <br>
-            <br>
-            <a type="button" href="/create" class="btn btn-warning"  style="float:right">Create</a>
-            <!-- <button onclick="createTask()">Create Task</button> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <div class="container">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Completed</th>
-                        <th scope="col" onclick="updateTask()">Edit</th>
-                        <th scope="col" onclick="deleteTask()">Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="taskList"></tbody>
-            </table>
-        </div>
+
     </div>
 
 

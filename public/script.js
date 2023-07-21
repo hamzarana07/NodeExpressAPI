@@ -55,71 +55,27 @@ function viewTasks() {
 
 document.addEventListener("DOMContentLoaded", viewTasks);
 
-// function createTask() {
-//     const taskTitle = document.getElementById("taskTitle").value;
+function createTask() {
+    const taskTitle = document.getElementById("titleID").value;
 
-//     axios
-//         .post("/api/v1/tasks", {
-//             name: taskTitle,
-//             completed: false,
-//         })
-//         .then((response) => {
-//             console.log("Task created:", response.data.task);
-//             // Optionally, you can update the UI or display a success message here
-//         })
-//         .catch((error) => {
-//             console.error("Error creating task:", error);
-//             // Optionally, you can display an error message here
-//         });
-// }
+    axios
+        .post("/api/v1/tasks", {
+            name: taskTitle,
+            completed: false,
+        })
+        .then((response) => {
+            console.log("Task created:", response.data.task);
+            // Optionally, you can update the UI or display a success message here
+        })
+        .catch((error) => {
+            console.error("Error creating task:", error);
+            // Optionally, you can display an error message here
+        });
+}
+// Add an event listener to the form element to handle form submission
+document.getElementById("myForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-// function getTask() {
-//     const taskId = document.getElementById("taskId").value;
-
-//     axios
-//         .get(`/api/v1/tasks/${taskId}`)
-//         .then((response) => {
-//             const taskDetails = response.data.task;
-//             const taskDetailsList = document.getElementById("taskDetails");
-//             taskDetailsList.innerHTML = `
-//           <li>ID: ${taskDetails._id}</li>
-//           <li>Title: ${taskDetails.name}</li>
-//           <li>Completed: ${taskDetails.completed}</li>
-//       `;
-//         })
-//         .catch((error) => {
-//             console.error("Error fetching task:", error);
-//             // Optionally, you can display an error message here
-//         });
-// }
-
-// function updateTask() {
-//     const taskId = document.getElementById("updateTaskId").value;
-//     const updatedTaskTitle = document.getElementById("updatedTaskTitle").value;
-
-//     axios
-//         .patch(`/api/v1/tasks/${taskId}`, { name: updatedTaskTitle })
-//         .then((response) => {
-//             console.log("Task updated:", response.data.task);
-//             // Optionally, you can update the UI or display a success message here
-//         })
-//         .catch((error) => {
-//             console.error("Error updating task:", error);
-//             // Optionally, you can display an error message here
-//         });
-// }
-
-// function deleteTask() {
-//     const taskId = document.getElementById("deleteTaskId").value;
-
-//     axios
-//         .delete(`/api/v1/tasks/${taskId}`)
-//         .then((response) => {
-//             console.log("Task deleted:", response.data.task);
-//             // Optionally, you can update the UI or display a success message here
-//         })
-//         .catch((error) => {
-//             console.error("Error deleting task:", error);
-//             // Optionally, you can display an error message here
-//         });
-// }
+    // Call the createTask() function to handle form data submission
+    createTask();
+});

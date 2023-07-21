@@ -13,8 +13,15 @@ app.use("/api/v1/tasks", tasks);
 // Move the catch-all middleware to the end
 const indexPath = path.join(__dirname, "public", "index.html");
 app.get("/", (req, res) => {
-  res.sendFile(indexPath);
+    res.sendFile(indexPath);
 });
+
+const createPath = path.join(__dirname, "public", "create.html");
+app.get("/create", (req, res) => {
+    res.sendFile(createPath);
+});
+
+
 app.use(notFound);
 
 const port = 8000;
